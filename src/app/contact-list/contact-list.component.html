@@ -1,0 +1,80 @@
+<h1 class="text-center mt-4">Phone Book App</h1>
+<div class="container contact-container mt-4">
+
+    <form #form="ngForm" (ngSubmit)="onSubmit()">
+
+        <div class="row form-row">
+            <div class="col-1 mb-3">
+                <label for="id"><b>Id</b></label>
+                <input type="text" class="form-control" id="id" ngModel name="id" #id="ngModel" disabled>
+                <div *ngIf="id?.touched && id?.invalid" class="invalid-feedback">
+                    Please enter phone number.
+                </div>
+            </div>
+            <div class="col-3 mb-3">
+                <label for="firstName"><b>First Name</b></label>
+                <input type="text" class="form-control" id="firstName" ngModel name="firstName" #firstName="ngModel"
+                    placeholder="Enter first name" required>
+                <div *ngIf="firstName?.touched && firstName?.invalid" class="invalid-feedback">
+                    Please enter first name.
+                </div>
+            </div>
+
+            <div class="col-3 mb-3">
+                <label for="lastName"><b>Last Name</b></label>
+                <input type="text" class="form-control" id="lastName" ngModel name="lastName" #lastName="ngModel"
+                    placeholder="Enter last name" required>
+                <div *ngIf="lastName?.touched && lastName?.invalid" class="invalid-feedback">
+                    Please enter last name.
+                </div>
+            </div>
+
+            <div class="col-3 mb-3">
+                <label for="phone"><b>Phone Number</b></label>
+                <input type="text" class="form-control" id="phone" ngModel name="phone" #phone="ngModel"
+                    placeholder="Enter phone number" required>
+                <div *ngIf="phone?.touched && phone?.invalid" class="invalid-feedback">
+                    Please enter phone number.
+                </div>
+            </div>
+
+            <div class="col-1 add-contact">
+                <button class="btn btn-success" type="submit"><i class="bi bi-plus-circle-fill"></i></button>
+            </div>
+            <div *ngIf="alreadyAdded" class="invalid-feedback text-center">
+                <b>This record is already added in below table. Please add unique contact details!</b> 
+            </div>
+            <div *ngIf="addedSuccessfully" class="valid-feedback text-center">
+                <b>Added Succesfully!</b> 
+            </div>
+        </div>
+    </form>
+    
+    <table class="table table-sm table-bordered" *ngIf="loading">
+        <thead>
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">First Name</th>
+                <th scope="col">Last Name</th>
+                <th scope="col">Phone Number</th>
+                <th scope="col">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let contact of contactList">
+                <th scope="row">{{contact.id}}</th>
+                <td>{{contact.firstName}}</td>
+                <td>{{contact.lastName}}</td>
+                <td>{{contact.phone}}</td>
+                <td>
+                    <button class="btn btn-info btn-sm mr-2" type="button"
+                        (click)="edit(contact.id)"><i class="bi bi-pencil-square"></i></button>
+                    <button class="btn btn-danger btn-sm" type="button" (click)="delete(contact.id)"><i class="bi bi-trash"></i></button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="loading-section" *ngIf="!loading">
+       <b class="text-center"> Loading contact list...</b> 
+    </div>
+</div>

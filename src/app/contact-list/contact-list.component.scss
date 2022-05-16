@@ -1,0 +1,54 @@
+.contact-container {
+    .form-row {
+        display: flex;
+        justify-content: center;
+        box-shadow: rgb(0 0 0 / 24%) 0px 3px 8px;
+        padding: 10px 0;
+        margin-bottom: 30px;
+    }
+
+    .add-contact {
+        margin-top: 30px;
+    }
+    
+    .valid-feedback {
+        display: block;
+        color: green;
+    }
+
+    .invalid-feedback {
+        display: block;
+        color: red;
+    }
+
+    p {
+        font-family: Lato;
+    }
+    
+    input.ng-invalid.ng-touched {
+        border: 1px solid red;
+    }
+    
+    tr {
+        :nth-child(1) {
+            width: 15%;
+            text-align: center;
+        }
+        :nth-child(2) {
+            width: 20%;
+            text-align: center;
+        }
+        :nth-child(3) {
+            width: 20%;
+            text-align: center;
+        }
+        :nth-child(4) {
+            width: 20%;
+            text-align: center;
+        }
+        :nth-child(5) {
+            width: 20%;
+            text-align: center;
+        }
+    }
+}
