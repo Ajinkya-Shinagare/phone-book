@@ -1,6 +1,13 @@
 # PhoneBook
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.0.
+This project was generated with below,
+
+**Dependency-**
+<pre>
+"@angular/cli": "~12.2.0",
+"bootstrap": "^4.0.0",
+"bootstrap-icons": "^1.8.2",
+</pre>
 
 **Clone the repo**
 <pre>
